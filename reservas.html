@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease;
+            animation-delay: 0.2s;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        label:hover {
+            color: #4CAF50;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4CAF50;
+        }
+
+        input[type="submit"] {
+            background-color: #45a049;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reserva</h2>
+    <form id="reservation-form">
+        <div>
+            <label for="barber">Nombre del barbero:</label>
+            <input type="text" id="barber" name="barber" required>
+        </div>
+        <div>
+            <label for="date">Fecha:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div>
+            <label for="time">Hora:</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div>
+            <label for="service">Tipo de servicio:</label>
+            <select id="service" name="service" required>
+                <option value="corte-caballero">Corte de caballero</option>
+                <option value="perfilacion-cejas">Perfilación de cejas</option>
+                <option value="arreglo-barba">Arreglo de barba</option>
+                <option value="tintura-cabello">Tintura de cabello</option>
+            </select>
+        </div>
+        <div>
+            <label for="payment">Tipo de pago:</label>
+            <input type="text" id="payment" name="payment" required>
+        </div>
+        <div>
+            <input type="submit" value="Reservar">
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("reservation-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evitar envío del formulario
+
+            // Obtener los valores de los campos de entrada
+            var barber = document.getElementById("barber").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+            var service = document.getElementById("service").value;
+            var payment = document.getElementById("payment").value;
+
+            // Realizar acciones con los datos de la reserva
+            console.log("Reserva realizada:");
+            console.log("Nombre del barbero:", barber);
+            console.log("Fecha:", date);
+            console.log("Hora:", time);
+            console.log("Tipo de servicio:", service);
+            console.log("Tipo de pago:", payment);
+
+            // Puedes enviar los datos a un servidor o realizar otras acciones aquí
+        });
+    </script>
+</body>
+</html>
+
